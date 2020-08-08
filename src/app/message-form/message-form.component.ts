@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../services';
+import { Message } from '../message';
 
 @Component({
   selector: 'app-message-form',
@@ -19,7 +20,7 @@ export class MessageFormComponent implements OnInit {
       receiverId: userId,
       content: value,
       sentAt: new Date().toLocaleString()
-    })
+    } as Message)
   }
 
 }

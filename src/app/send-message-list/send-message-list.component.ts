@@ -16,6 +16,8 @@ export class SendMessageListComponent implements OnInit {
 
   ngOnInit(): void {
     this.sendMessages$ = this.service.messages$;
+
+    this.service.fetchAll();
   }
 
 }
