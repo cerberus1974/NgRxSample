@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../services';
 import { Message } from '../message';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { sendMessage } from '../store/message.actions';
+import { getLoading } from '../store/message.selectors';
 
 @Component({
   selector: 'app-message-form',
@@ -10,6 +11,8 @@ import { sendMessage } from '../store/message.actions';
   styleUrls: ['./message-form.component.scss']
 })
 export class MessageFormComponent implements OnInit {
+
+  loading$ = this.store.pipe(select(getLoading));
 
   constructor(private store: Store) { }
 

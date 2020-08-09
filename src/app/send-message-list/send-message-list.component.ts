@@ -6,7 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { getAllMessage } from '../store/message.actions';
 import { tap } from 'rxjs/operators';
 
-import { getMessages } from '../store/message.selectors';
+import { getMessages, getLoading } from '../store/message.selectors';
 
 @Component({
   selector: 'app-send-message-list',
@@ -15,15 +15,13 @@ import { getMessages } from '../store/message.selectors';
 })
 export class SendMessageListComponent implements OnInit {
 
-  sendMessages$: Observable<Message[]>;
+  sendMessages$ = this.store.pipe(select(getMessages));
+
+  loading$ = this.store.pipe(select(getLoading));
 
   constructor(private store: Store<{message: Message[]}>) { }
 
   ngOnInit(): void {
-    this.sendMessages$ = this.store.pipe(
-      select(getMessages)
-    );
-
     this.store.dispatch(getAllMessage());
   }
 

@@ -6,4 +6,4 @@
     <option value="bar">bar</option>
   </select>
 </div>
-<button (click)="onSubmit(text.value, user.value)">送信</button>
+<button (click)="onSubmit(text.value, user.value)" [disabled]="loading$ | async">送信</button>
