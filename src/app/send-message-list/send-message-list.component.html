@@ -1,4 +1,7 @@
-<div *ngFor="let message of sendMessages$ | async">
-  送信先:<span>{{message.receiverId}}</span>
-  メッセージ:<span>{{message.content}}</span>
+<div>
+  <button (click)="onReload()">再読込</button>
+  <div *ngFor="let message of sendMessages$ | async">
+    送信先:<span>{{message.receiverId}}</span>
+    メッセージ:<span>{{message.content}}</span>
+  </div>
 </div>

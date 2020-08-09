@@ -8,7 +8,8 @@ import { MessageService } from './message.service';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const messages = [
+    const messages: Message[] = [
+      { id: 0, senderId: '?', receiverId: '!!!', content: 'temp' } as Message
     ];
 
     return {messages};

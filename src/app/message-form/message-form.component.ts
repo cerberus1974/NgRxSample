@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../services';
 import { Message } from '../message';
+import { Store } from '@ngrx/store';
+import { sendMessage } from '../store/message.actions';
 
 @Component({
   selector: 'app-message-form',
@@ -9,18 +11,18 @@ import { Message } from '../message';
 })
 export class MessageFormComponent implements OnInit {
 
-  constructor(private service: MessageService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(value: string, userId: string) {
-    this.service.send({
+    this.store.dispatch(sendMessage({
       senderId: 'me',
       receiverId: userId,
       content: value,
       sentAt: new Date().toLocaleString()
-    } as Message)
+    } as Message));
   }
 
 }

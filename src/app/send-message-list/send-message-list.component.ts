@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../services';
 import { Message } from '../message';
 import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { getAllMessage } from '../store/message.actions';
+import { tap } from 'rxjs/operators';
+
+import { getMessages } from '../store/message.selectors';
 
 @Component({
   selector: 'app-send-message-list',
@@ -12,12 +17,19 @@ export class SendMessageListComponent implements OnInit {
 
   sendMessages$: Observable<Message[]>;
 
-  constructor(private service: MessageService) { }
+  constructor(private store: Store<{message: Message[]}>) { }
 
   ngOnInit(): void {
-    this.sendMessages$ = this.service.messages$;
+    this.sendMessages$ = this.store.pipe(
+      tap(m => console.log(m)),
+      select(getMessages)
+    );
 
-    this.service.fetchAll();
+    this.store.dispatch(getAllMessage());
+  }
+
+  onReload(): void {
+    this.store.dispatch(getAllMessage());
   }
 
 }
