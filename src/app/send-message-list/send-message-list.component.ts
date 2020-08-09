@@ -21,7 +21,6 @@ export class SendMessageListComponent implements OnInit {
 
   ngOnInit(): void {
     this.sendMessages$ = this.store.pipe(
-      tap(m => console.log(m)),
       select(getMessages)
     );
 

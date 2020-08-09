@@ -20,8 +20,12 @@ export class MessageEffects {
 
   addMessage$ = createEffect(() => this.actions$.pipe(
     ofType(MessageActions.sendMessage),
-    concatMap(m => this.service.send(m))
-  ), { dispatch: false });
+    concatMap(m => this.service.send(m)
+      .pipe(
+        map((message: Message) => MessageActions.addMessageSuccess( { message })),
+      )
+    )
+  ));
 
   constructor(private actions$: Actions, private service: MessageService) {}
 

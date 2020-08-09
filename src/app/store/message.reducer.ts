@@ -17,6 +17,7 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
   on(action.sendMessage, state => ({...state})),
+  on(action.addMessageSuccess, (state, { message }) => ({...state, messages: [...state.messages, message]})),
   on(action.getAllMessage, state => ({...state})),
   on(action.getAllMessageSuccess, (state, { messages }) => ({...state, messages: [...messages]})),
 );

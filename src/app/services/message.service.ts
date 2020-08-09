@@ -16,10 +16,7 @@ export class MessageService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Message[]> {
-    return this.httpClient.get<Message[]>(this.url)
-      .pipe(
-        tap(m => console.log(m))
-      );
+    return this.httpClient.get<Message[]>(this.url);
   }
 
   send(message: Message) {

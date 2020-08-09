@@ -4,15 +4,18 @@ import { Message } from '../message';
 
 export enum Actions {
   SendMessage = '[MessageForm] Send Messages',
-  getAllMessage = '[API/Messages] Get All',
-  getAllMessageSuccess = '[API/Messages] Get All Success',
+  AddMessageSuccess = '[API/Messages] Add Success',
+  GetAllMessage = '[API/Messages] Get All',
+  GetAllMessageSuccess = '[API/Messages] Get All Success',
 }
 
 export const sendMessage = createAction(Actions.SendMessage, props<Message>());
 
-export const getAllMessage = createAction(Actions.getAllMessage);
+export const addMessageSuccess = createAction(Actions.AddMessageSuccess, props<{ message: Message }>());
 
-export const getAllMessageSuccess = createAction(Actions.getAllMessageSuccess, props<{messages: Message[]}>());
+export const getAllMessage = createAction(Actions.GetAllMessage);
+
+export const getAllMessageSuccess = createAction(Actions.GetAllMessageSuccess, props<{messages: Message[]}>());
 
 
 
