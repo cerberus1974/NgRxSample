@@ -22,7 +22,7 @@ export class MessageEffects {
     ofType(MessageActions.sendMessage),
     concatMap(m => this.service.send(m)
       .pipe(
-        map((message: Message) => MessageActions.addMessageSuccess( { message })),
+        map((message: Message) => MessageActions.addMessageSuccess( { message, success: true })),
       )
     )
   ));

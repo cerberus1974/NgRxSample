@@ -11,7 +11,7 @@ export enum Actions {
 
 export const sendMessage = createAction(Actions.SendMessage, props<Message>());
 
-export const addMessageSuccess = createAction(Actions.AddMessageSuccess, props<{ message: Message }>());
+export const addMessageSuccess = createAction(Actions.AddMessageSuccess, props<{ message: Message, success: boolean }>());
 
 export const getAllMessage = createAction(Actions.GetAllMessage);
 
