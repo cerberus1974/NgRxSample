@@ -20,6 +20,6 @@ export class MessageService {
   }
 
   send(message: Message) {
-    return this.httpClient.post<Message>(this.url, message);
+    return this.httpClient.post<Message>(this.url + 'ng', message);
   }
 }

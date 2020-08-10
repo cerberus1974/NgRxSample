@@ -3,7 +3,7 @@ import { MessageService } from '../services';
 import { Message } from '../message';
 import { Store, select } from '@ngrx/store';
 import { sendMessage } from '../store/message.actions';
-import { getLoading, getAddSuccessFlag } from '../store/message.selectors';
+import { getLoading, getAddSuccessFlag, getAddError } from '../store/message.selectors';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,7 +17,11 @@ export class MessageFormComponent implements OnInit, OnDestroy {
 
   success$: Subscription;
 
+  error$: Subscription;
+
   message: string;
+
+  errorMessage = '';
 
   constructor(private store: Store) { }
 
@@ -27,10 +31,17 @@ export class MessageFormComponent implements OnInit, OnDestroy {
         if (f) this.message = '';
         return f;
       });
+
+    this.error$ = this.store.pipe(select(getAddError))
+      .subscribe(e => {
+        if (e) this.errorMessage = e.statusText;
+        return e;
+      })
   }
 
   ngOnDestroy(): void {
     this.success$.unsubscribe();
+    this.error$.unsubscribe();
   }
 
   onSubmit(value: string, userId: string) {

@@ -7,3 +7,4 @@
   </select>
 </div>
 <button (click)="onSubmit(message, user.value)" [disabled]="loading$ | async">送信</button>
+<div style="color: red;">{{errorMessage}}</div>
