@@ -4,7 +4,7 @@ import { MessageService } from '../services';
 import { switchMap, map, concatMap, catchError } from 'rxjs/operators';
 
 import * as MessageActions from './message.actions';
-import { Message } from '../message';
+import { Message } from './message.model';
 import { of } from 'rxjs';
 
 @Injectable()

@@ -1,13 +1,25 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { State, messageFeatureKey } from './message.reducer';
+import * as fromMessage from './message.reducer';
 
-const getState = createFeatureSelector<State>(messageFeatureKey);
+const selectMessageState = createFeatureSelector<fromMessage.State>(fromMessage.messageFeatureKey);
 
-export const getMessages = createSelector(getState, state => state.messages);
+export const getMessages = createSelector(
+  selectMessageState,
+  fromMessage.selectAll
+);
 
-export const getLoading = createSelector(getState, state => state.loading);
+export const getLoading = createSelector(
+  selectMessageState,
+  state => state.loading
+);
 
-export const getAddSuccessFlag = createSelector(getState, state => state.success);
+export const getAddSuccessFlag = createSelector(
+  selectMessageState,
+  state => state.success
+);
 
-export const getAddError = createSelector(getState, state => state.error);
+export const getAddError = createSelector(
+  selectMessageState,
+  state => state.error
+);

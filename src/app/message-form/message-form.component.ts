@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MessageService } from '../services';
-import { Message } from '../message';
+import { Message } from '../store/message.model';
 import { Store, select } from '@ngrx/store';
 import { sendMessage } from '../store/message.actions';
 import { getLoading, getAddSuccessFlag, getAddError } from '../store/message.selectors';

@@ -13,7 +13,6 @@ export class UserEffects {
     ofType(UserAction.loadUsers),
     switchMap(() => this.service.getAll()
       .pipe(
-        tap(users => console.log(users)),
         map((users: User[]) => UserAction.loadUsersSuccess({ users }))),
       )
     )

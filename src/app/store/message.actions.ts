@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Action } from 'rxjs/internal/scheduler/Action';
-import { Message } from '../message';
+import { Message } from './message.model';
 
 export enum Actions {
   SendMessage = '[MessageForm] Send Messages',

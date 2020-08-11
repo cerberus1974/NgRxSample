@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Message } from '../message';
+import { Message } from '../store/message.model';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 

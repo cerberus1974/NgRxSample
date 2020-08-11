@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../services';
-import { Message } from '../message';
+import { Message } from '../store/message.model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { getAllMessage } from '../store/message.actions';
