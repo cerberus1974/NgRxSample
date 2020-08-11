@@ -3,50 +3,17 @@ import { Update } from '@ngrx/entity';
 
 import { User } from './user.model';
 
+export enum Actions {
+  LoadUsers = '[MessageForm] Load Users',
+  LoadUsersSuccess = '[User/API] Load Users Success',
+}
+
 export const loadUsers = createAction(
-  '[User/API] Load Users'
+  Actions.LoadUsers
 );
 
-export const addUser = createAction(
-  '[User/API] Add User',
-  props<{ user: User }>()
-);
-
-export const upsertUser = createAction(
-  '[User/API] Upsert User',
-  props<{ user: User }>()
-);
-
-export const addUsers = createAction(
-  '[User/API] Add Users',
+export const loadUsersSuccess = createAction(
+  Actions.LoadUsersSuccess,
   props<{ users: User[] }>()
 );
 
-export const upsertUsers = createAction(
-  '[User/API] Upsert Users',
-  props<{ users: User[] }>()
-);
-
-export const updateUser = createAction(
-  '[User/API] Update User',
-  props<{ user: Update<User> }>()
-);
-
-export const updateUsers = createAction(
-  '[User/API] Update Users',
-  props<{ users: Update<User>[] }>()
-);
-
-export const deleteUser = createAction(
-  '[User/API] Delete User',
-  props<{ id: string }>()
-);
-
-export const deleteUsers = createAction(
-  '[User/API] Delete Users',
-  props<{ ids: string[] }>()
-);
-
-export const clearUsers = createAction(
-  '[User/API] Clear Users'
-);

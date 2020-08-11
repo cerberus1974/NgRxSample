@@ -17,6 +17,7 @@ import * as messageReducer from './store/message.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from './store/message.effects';
 import * as usersReducer from './store/user.reducer';
+import { UserEffects } from './store/user.effects';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import * as usersReducer from './store/user.reducer';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([MessageEffects]),
+    EffectsModule.forRoot([MessageEffects, UserEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
