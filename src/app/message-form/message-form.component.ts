@@ -5,6 +5,8 @@ import { Store, select } from '@ngrx/store';
 import { sendMessage } from '../store/message.actions';
 import { getLoading, getAddSuccessFlag, getAddError } from '../store/message.selectors';
 import { Subscription } from 'rxjs';
+import { selectAllUsers } from '../store/user.selectors';
+import { loadUsers } from '../store/user.actions';
 
 @Component({
   selector: 'app-message-form',
@@ -14,6 +16,8 @@ import { Subscription } from 'rxjs';
 export class MessageFormComponent implements OnInit, OnDestroy {
 
   loading$ = this.store.pipe(select(getLoading));
+
+  users$ = this.store.pipe(select(selectAllUsers));
 
   success$: Subscription;
 
@@ -37,6 +41,8 @@ export class MessageFormComponent implements OnInit, OnDestroy {
         if (e) this.errorMessage = e.statusText;
         return e;
       })
+
+    this.store.dispatch(loadUsers());
   }
 
   ngOnDestroy(): void {

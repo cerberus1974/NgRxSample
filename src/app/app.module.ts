@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import * as messageReducer from './store/message.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from './store/message.effects';
+import * as usersReducer from './store/user.reducer';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { MessageEffects } from './store/message.effects';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    StoreModule.forRoot({message: messageReducer.reducer}, {
+    StoreModule.forRoot({message: messageReducer.reducer, users: usersReducer.reducer}, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,

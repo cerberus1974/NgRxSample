@@ -1,9 +1,7 @@
 <div>
   <input type="text" [(ngModel)]="message">
   <select #user>
-    <option value="hoge">hoge</option>
-    <option value="foo">foo</option>
-    <option value="bar">bar</option>
+    <option *ngFor="let user of users$ | async" [value]="user.id">{{user.name}}</option>
   </select>
 </div>
 <button (click)="onSubmit(message, user.value)" [disabled]="loading$ | async">送信</button>

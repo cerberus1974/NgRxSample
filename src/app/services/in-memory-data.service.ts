@@ -9,7 +9,7 @@ import { MessageService } from './message.service';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const messages: Message[] = [
-      { id: 0, senderId: '?', receiverId: '!!!', content: 'temp' } as Message
+      { id: 1, senderId: '002', receiverId: '001', content: 'temp' } as Message
     ];
 
     return {messages};
