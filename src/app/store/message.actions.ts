@@ -6,7 +6,8 @@ export enum Actions {
   SendMessage = '[MessageForm] Send Messages',
   AddMessageSuccess = '[API/Messages] Add Success',
   AddMessageFailure = '[API/Messages] Add Failure',
-  GetAllMessage = '[API/Messages] Get All',
+  SendMessageListGetAll = '[SendMessageList] Get All',
+  DashboardGetAll = '[Dashboard] Get All',
   GetAllMessageSuccess = '[API/Messages] Get All Success',
 }
 
@@ -16,7 +17,9 @@ export const addMessageSuccess = createAction(Actions.AddMessageSuccess, props<{
 
 export const addMessageFailure = createAction(Actions.AddMessageFailure, props<{ error: any }>());
 
-export const getAllMessage = createAction(Actions.GetAllMessage);
+export const getAllMessageBySendMessageList = createAction(Actions.SendMessageListGetAll);
+
+export const getAllMessageByDashboard = createAction(Actions.DashboardGetAll);
 
 export const getAllMessageSuccess = createAction(Actions.GetAllMessageSuccess, props<{messages: Message[]}>());
 

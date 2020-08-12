@@ -25,7 +25,11 @@ export const reducer = createReducer(
   on(action.sendMessage, state => ({...state, loading: true, success: false, error: {}})),
   on(action.addMessageSuccess, (state, action) => adapter.upsertOne(action.message, {...state, success: true, loading: false})),
   on(action.addMessageFailure, (state, { error }) => ({...state, loading: false, error})),
-  on(action.getAllMessage, state => ({...state, loading: true})),
+  on(
+    action.getAllMessageBySendMessageList,
+    action.getAllMessageByDashboard,
+    state => ({...state, loading: true})
+  ),
   on(action.getAllMessageSuccess, (state, action) => adapter.setAll(action.messages, {...state, loading: false})),
 );
 

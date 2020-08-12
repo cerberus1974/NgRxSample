@@ -11,7 +11,7 @@ import { of } from 'rxjs';
 export class MessageEffects {
 
   getMessages$ = createEffect(() => this.actions$.pipe(
-    ofType(MessageActions.getAllMessage),
+    ofType(MessageActions.getAllMessageBySendMessageList, MessageActions.getAllMessageByDashboard),
     switchMap(() => this.service.getAll()
       .pipe(
         map((messages: Message[]) => MessageActions.getAllMessageSuccess({ messages }))),
