@@ -18,12 +18,17 @@ import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from './store/message.effects';
 import * as usersReducer from './store/user.reducer';
 import { UserEffects } from './store/user.effects';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MesssageComponent } from './messsage/messsage.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageFormComponent,
-    SendMessageListComponent
+    SendMessageListComponent,
+    DashboardComponent,
+    MesssageComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { UserEffects } from './store/user.effects';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([MessageEffects, UserEffects]),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
