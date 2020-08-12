@@ -1,15 +1,18 @@
 import { createAction, props } from '@ngrx/store';
 
+import { User } from '../user.model';
+
+export enum Actions {
+  LoadUsers = '[MessageForm] Load Users',
+  LoadUsersSuccess = '[User/API] Load Users Success',
+}
+
 export const loadUsers = createAction(
-  '[User] Load Users'
+  Actions.LoadUsers
 );
 
 export const loadUsersSuccess = createAction(
-  '[User] Load Users Success',
-  props<{ data: any }>()
+  Actions.LoadUsersSuccess,
+  props<{ users: User[] }>()
 );
 
-export const loadUsersFailure = createAction(
-  '[User] Load Users Failure',
-  props<{ error: any }>()
-);

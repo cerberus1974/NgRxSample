@@ -16,11 +16,10 @@ import { environment } from '../environments/environment';
 import * as messageReducer from './store/message.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from './store/message.effects';
-import * as usersReducer from './store/user.reducer';
-import { UserEffects } from './store/user.effects';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MesssageComponent } from './messsage/messsage.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserModule } from './store/user/user.module';
 
 @NgModule({
   declarations: [
@@ -34,10 +33,11 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    UserModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    StoreModule.forRoot({message: messageReducer.reducer, users: usersReducer.reducer}, {
+    StoreModule.forRoot({message: messageReducer.reducer}, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
@@ -46,7 +46,7 @@ import { AppRoutingModule } from './app-routing.module';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([MessageEffects, UserEffects]),
+    EffectsModule.forRoot([MessageEffects]),
     AppRoutingModule,
   ],
   providers: [],
