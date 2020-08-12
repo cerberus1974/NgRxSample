@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from '../store/message.model';
+import { Message, getAllMessageBySendMessageList, getMessages, getLoading } from '../store/message';
 import { Store, select } from '@ngrx/store';
-import { getAllMessageBySendMessageList } from '../store/message.actions';
-
-import { getMessages, getLoading } from '../store/message.selectors';
 
 @Component({
   selector: 'app-send-message-list',

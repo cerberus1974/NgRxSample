@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Message } from '../store/message.model';
+import { Message } from '../store/message';
 import { User } from '../store/user';
 
 @Injectable({

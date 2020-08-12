@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import * as fromMessage from './message.reducer';
+import * as fromMessage from '../reducers/message.reducer';
 
 const selectMessageState = createFeatureSelector<fromMessage.State>(fromMessage.messageFeatureKey);
 

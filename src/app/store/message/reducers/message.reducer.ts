@@ -1,6 +1,6 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { Message } from './message.model';
-import * as action from './message.actions';
+import { createReducer, on } from '@ngrx/store';
+import { Message } from '../message.model';
+import * as action from '../actions/message.actions';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 

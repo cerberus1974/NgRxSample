@@ -5,8 +5,6 @@ import * as fromUser from './reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user.effects';
 
-
-
 @NgModule({
   declarations: [],
   imports: [

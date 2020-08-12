@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
-import * as MessageAction from '../store/message.actions';
-
-import * as MessageSelector from '../store/message.selectors'
-
+import { getMessages, getAllMessageByDashboard} from '../store/message';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +10,12 @@ import * as MessageSelector from '../store/message.selectors'
 })
 export class DashboardComponent implements OnInit {
 
-  messages$ = this.store.pipe(select(MessageSelector.getMessages));
+  messages$ = this.store.pipe(select(getMessages));
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(MessageAction.getAllMessageByDashboard());
+    this.store.dispatch(getAllMessageByDashboard());
   }
 
 }

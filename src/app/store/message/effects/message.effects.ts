@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { MessageService } from '../services';
+import { MessageService } from '../../../services';
 import { switchMap, map, concatMap, catchError } from 'rxjs/operators';
 
-import * as MessageActions from './message.actions';
-import { Message } from './message.model';
+import * as MessageActions from '../actions/message.actions';
+import { Message } from '../message.model';
 import { of } from 'rxjs';
 
 @Injectable()

@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Message } from '../store/message.model';
+import { Message, sendMessage, getLoading, getAddSuccessFlag, getAddError } from '../store/message';
 import { Store, select } from '@ngrx/store';
-import { sendMessage } from '../store/message.actions';
-import { getLoading, getAddSuccessFlag, getAddError } from '../store/message.selectors';
 import { Subscription } from 'rxjs';
 import { loadUsers, selectAllUsers } from '../store/user';
 
