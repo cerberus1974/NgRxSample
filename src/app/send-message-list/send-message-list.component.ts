@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Message, getAllMessageBySendMessageList, getMessages, getLoading } from '../store/message';
+import { getAllMessageBySendMessageList, getMessages, getLoading } from '../store/message';
 import { Store, select } from '@ngrx/store';
 
 @Component({
@@ -13,7 +13,7 @@ export class SendMessageListComponent implements OnInit {
 
   loading$ = this.store.pipe(select(getLoading));
 
-  constructor(private store: Store<{message: Message[]}>) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.store.dispatch(getAllMessageBySendMessageList());

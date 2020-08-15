@@ -3,6 +3,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
 import { MessageEffects } from './message.effects';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MessageEffects', () => {
   let actions$: Observable<any>;
@@ -13,6 +14,9 @@ describe('MessageEffects', () => {
       providers: [
         MessageEffects,
         provideMockActions(() => actions$)
+      ],
+      imports: [
+        HttpClientTestingModule,
       ]
     });
 

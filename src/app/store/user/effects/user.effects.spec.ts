@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
@@ -13,6 +14,9 @@ describe('UserEffects', () => {
       providers: [
         UserEffects,
         provideMockActions(() => actions$)
+      ],
+      imports: [
+        HttpClientTestingModule,
       ]
     });
 
