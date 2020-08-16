@@ -32,7 +32,7 @@ describe('MessageEffects', () => {
     expect(effects).toBeTruthy();
   });
 
-  fdescribe('addMessage$', () => {
+  describe('addMessage$', () => {
 
     let spy: jasmine.Spy;
 
@@ -60,6 +60,28 @@ describe('MessageEffects', () => {
         expect(x.error.message).toBe('error');
         done();
       });
+    });
+  });
+
+  describe('getMessages$', () => {
+    beforeEach(() => {
+      spyOn(service, 'getAll').and.returnValue(of([]));
+    });
+
+    it('getAllMessageBySendMessageListから呼ばれる', (done) => {
+      actions$ = of({ type: Actions.SendMessageListGetAll });
+
+      effects.getMessages$.subscribe(x => {
+        done();
+      })
+    });
+
+    it('getAllMessageByDashboardから呼ばれる', (done) => {
+      actions$ = of({ type: Actions.DashboardGetAll });
+
+      effects.getMessages$.subscribe(x => {
+        done();
+      })
     });
   });
 });
